@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   creationTimestamp: null
-  name: ashu-dev-ns
+  name: jaipal-dev-ns
 spec: {}
 status: {}
 
@@ -13,24 +13,24 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: ashu-app
-  name: ashu-app
-  namespace: ashu-dev-ns
+    app: jaipal-app
+  name: jaipal-app
+  namespace: jaipal-dev-ns
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ashu-app
+      app: jaipal-app
   strategy: {}
   template: # tempalte of pods 
     metadata:
       creationTimestamp: null
       labels:
-        app: ashu-app # label of pods 
+        app: jaipal-app # label of pods 
     spec:
       containers:
       - image: dockerashu/ashumobiwebapp:6
-        name: ashumobiwebapp
+        name: jaipalmobiwebapp
         ports:
         - containerPort: 80
         resources: {}
@@ -42,9 +42,9 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: ashusvc1
-  name: ashusvc1
-  namespace: ashu-dev-ns
+    app: jaipalsvc1
+  name: jaipalsvc1
+  namespace: jaipal-dev-ns
 spec:
   ports:
   - name: 1234-80
@@ -52,7 +52,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector: # is finding pod using pod labels to create Endpoints 
-    app: ashu-app # exact label of pods 
+    app: jaipal-app # exact label of pods 
   type: NodePort
 status:
   loadBalancer: {}
