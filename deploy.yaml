@@ -17,7 +17,7 @@ metadata:
   name: jaipal-app
   namespace: jaipal-dev-ns
 spec:
-  replicas: 3
+  replicas: 5 # increasing replicas
   selector:
     matchLabels:
       app: jaipal-app
